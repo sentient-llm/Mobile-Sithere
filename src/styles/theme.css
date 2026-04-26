@@ -1,0 +1,496 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   WINDOWS 97 DESIGN SYSTEM
+   ═══════════════════════════════════════════════════ */
+
+/* Base reset for Win97 feel */
+.w97 * {
+  box-sizing: border-box;
+  font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+  font-size: 12px;
+}
+
+/* 3-D raised surface (panels, buttons) */
+.w97-raised {
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  background: #C0C0C0;
+}
+
+/* 3-D pressed/active button */
+.w97-pressed {
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+  background: #C0C0C0;
+}
+
+/* Sunken / inset (inputs, message areas) */
+.w97-sunken {
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+  background: #FFFFFF;
+}
+
+/* Thin inset status-bar panel */
+.w97-inset {
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+}
+
+/* Classic button */
+.w97-btn {
+  background: #C0C0C0;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  color: #000000;
+  cursor: default;
+  font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  padding: 3px 10px;
+  min-height: 23px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  user-select: none;
+}
+
+.w97-btn:active:not(:disabled) {
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+  padding: 4px 9px 2px 11px;
+}
+
+.w97-btn:disabled {
+  color: #808080;
+  cursor: default;
+}
+
+/* Focused button dotted outline */
+.w97-btn:focus-visible {
+  outline: 1px dotted #000000;
+  outline-offset: -4px;
+}
+
+/* Default (main) button gets extra border */
+.w97-btn-default {
+  outline: 1px solid #000000;
+  outline-offset: -3px;
+}
+
+/* Danger tint */
+.w97-btn-danger {
+  color: #800000;
+}
+
+/* Titlebar control buttons */
+.w97-titlebar-btn {
+  background: #C0C0C0;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  width: 18px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: bold;
+  color: #000000;
+  cursor: default;
+  flex-shrink: 0;
+  padding: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+.w97-titlebar-btn:active {
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+}
+
+/* Input field */
+.w97-input {
+  background: #FFFFFF;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+  padding: 2px 4px;
+  font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  outline: none;
+  color: #000000;
+  width: 100%;
+}
+
+/* Menu bar item hover */
+.w97-menuitem:hover {
+  background: #000080;
+  color: #FFFFFF;
+}
+
+/* List view selected row */
+.w97-list-row {
+  padding: 2px 6px;
+  cursor: default;
+  font-size: 12px;
+  font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.w97-list-row:hover {
+  background: #000080;
+  color: #FFFFFF;
+}
+
+.w97-list-row.selected {
+  background: #000080;
+  color: #FFFFFF;
+}
+
+/* Taskbar button */
+.w97-taskbar-btn {
+  background: #C0C0C0;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  cursor: default;
+  padding: 1px 5px;
+  min-height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.w97-taskbar-btn.active {
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+}
+
+.w97-taskbar-btn:active {
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+}
+
+/* Start button */
+.w97-start-btn {
+  background: #C0C0C0;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #FFFFFF;
+  border-left-color: #FFFFFF;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: default;
+  padding: 2px 6px;
+  min-height: 22px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #000000;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.w97-start-btn:active {
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+}
+
+/* Progress bar */
+.w97-progress-track {
+  background: #FFFFFF;
+  border-width: 2px;
+  border-style: solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-bottom-color: #FFFFFF;
+  border-right-color: #FFFFFF;
+  height: 18px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.w97-progress-fill {
+  background: #000080;
+  height: 100%;
+  transition: width 0.4s linear;
+}
+
+/* Scrollbar styling for Win97 feel */
+.w97-scroll::-webkit-scrollbar {
+  width: 16px;
+}
+
+.w97-scroll::-webkit-scrollbar-track {
+  background: #C0C0C0;
+}
+
+.w97-scroll::-webkit-scrollbar-thumb {
+  background: #C0C0C0;
+  border-top: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+  border-bottom: 2px solid #808080;
+  border-right: 2px solid #808080;
+}
+
+.w97-scroll::-webkit-scrollbar-button {
+  background: #C0C0C0;
+  height: 16px;
+  border-top: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+  border-bottom: 2px solid #808080;
+  border-right: 2px solid #808080;
+}
+
+/* ═══════════════════════════════════════════════════
+   MOBILE RESPONSIVENESS — Win97 desktop layout
+   ═══════════════════════════════════════════════════ */
+
+/* Hide the icon sidebar on narrow phones (< 420px) so the window fills the screen */
+@media (max-width: 420px) {
+  .w97-desktop-icons {
+    display: none !important;
+  }
+}
+
+/* On very small heights (landscape phone), reduce taskbar height */
+@media (max-height: 400px) {
+  .w97-taskbar-btn,
+  .w97-start-btn {
+    min-height: 20px;
+    font-size: 10px;
+  }
+}
