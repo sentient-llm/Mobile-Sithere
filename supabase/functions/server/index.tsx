@@ -29,9 +29,19 @@ function adminClient() {
 async function getAuthUser(authHeader: string | null) {
   if (!authHeader) return null;
   const token = authHeader.split(" ")[1];
-  const { data: { user }, error } = await adminClient().auth.getUser(token);
-  if (error || !user) return null;
-  return user;
+  try {
+    const res = await fetch(`${Deno.env.get("SUPABASE_URL")}/auth/v1/user`, {
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "apikey": Deno.env.get("SUPABASE_ANON_KEY")!,
+      },
+    });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) {
+    console.log("getAuthUser error:", e);
+    return null;
+  }
 }
 
 async function createNotification(
